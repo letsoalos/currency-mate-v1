@@ -1,0 +1,12 @@
+D:\Workspaces\currencymate\currencymate-core\bin\Debug\net8.0\currencymate-core.deps.json
+D:\Workspaces\currencymate\currencymate-core\bin\Debug\net8.0\currencymate-core.dll
+D:\Workspaces\currencymate\currencymate-core\bin\Debug\net8.0\currencymate-core.pdb
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.AssemblyInfoInputs.cache
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.AssemblyInfo.cs
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.CoreCompileInputs.cache
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.dll
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\refint\currencymate-core.dll
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.pdb
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\ref\currencymate-core.dll
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.AssemblyReference.cache

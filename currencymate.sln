@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "currencymate-api", "currencymate-api\currencymate-api.csproj", "{96768E62-BA8A-4969-A92A-7D5D5F3C2DC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "currencymate-core", "currencymate-core\currencymate-core.csproj", "{A43CE6A6-2914-4C04-B544-F59482F0E0A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "currencymate-infrastructure", "currencymate-infrastructure\currencymate-infrastructure.csproj", "{97B52DD4-42E6-48F8-B00C-50C191EAE9D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96768E62-BA8A-4969-A92A-7D5D5F3C2DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96768E62-BA8A-4969-A92A-7D5D5F3C2DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96768E62-BA8A-4969-A92A-7D5D5F3C2DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96768E62-BA8A-4969-A92A-7D5D5F3C2DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43CE6A6-2914-4C04-B544-F59482F0E0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43CE6A6-2914-4C04-B544-F59482F0E0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43CE6A6-2914-4C04-B544-F59482F0E0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43CE6A6-2914-4C04-B544-F59482F0E0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B52DD4-42E6-48F8-B00C-50C191EAE9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B52DD4-42E6-48F8-B00C-50C191EAE9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B52DD4-42E6-48F8-B00C-50C191EAE9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B52DD4-42E6-48F8-B00C-50C191EAE9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
