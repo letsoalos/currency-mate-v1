@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   conversionRate: number;
   currencyName: string = '';
   currencies: any | [] = [];
+  noCurrency: boolean = false;
 
   constructor(private appService: AppService, private fb: FormBuilder) {}
 
@@ -50,9 +51,11 @@ export class AppComponent implements OnInit {
   }
 
   getCurrencies() {
+    this.noCurrency = true;
     this.appService.getCurrencies().subscribe({
       next: (res: any) => {
         this.currencies = res;
+        if(this.currencies.length > 0) this.noCurrency = false;
       },
       error: (err) => console.log(err)
     })
@@ -85,7 +88,9 @@ export class AppComponent implements OnInit {
 
   saveCurrencyRate(data: CurrencyRateDto) {
     this.appService.saveCurrencyRate(data).subscribe({
-      next: (res) => console.log('success', res),
+      next: (res) => {
+        this.getCurrencies();
+      },
       error: (err) => console.log(err)
     })
   }

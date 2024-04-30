@@ -15,7 +15,10 @@ namespace currencymate_infrastructure.Services
                 
         public async Task<IReadOnlyList<Currency>> GetCurrenciesAsync()
         {
-            var currencyList = await _context.Currencies.AsNoTracking().ToListAsync();
+            var currencyList = await _context.Currencies
+                .Where(c => c.Active)
+                .AsNoTracking()
+                .ToListAsync();
 
             return currencyList;
         }
@@ -39,7 +42,9 @@ namespace currencymate_infrastructure.Services
             { 
                 Code = currency.Code,
                 Name = currency.Name,
-                ExchangeRateToZAR = currency.ExchangeRateToZAR
+                ExchangeRateToZAR = currency.ExchangeRateToZAR,
+                DateAdded = DateTime.Now,
+                Active = true
             };
 
 
@@ -63,6 +68,7 @@ namespace currencymate_infrastructure.Services
             existingCurrency.Name = currency.Name;
             existingCurrency.Code = currency.Code;
             existingCurrency.ExchangeRateToZAR = currency.ExchangeRateToZAR;
+            existingCurrency.DateUpdated = DateTime.Now;
 
             // Save changes to the database
             _context.Currencies.Update(existingCurrency);
@@ -80,8 +86,8 @@ namespace currencymate_infrastructure.Services
             if (existingCurrency == null) return null;
 
             // Update the properties of the existing currency with the values from the updated currency
-            //existingCurrency.Active = true;
-            //existingCurrency.DateUpdated = DateTime.Now;
+            existingCurrency.Active = false;
+            existingCurrency.DateUpdated = DateTime.Now;
             
 
             // Save changes to the database

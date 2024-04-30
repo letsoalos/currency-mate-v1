@@ -71,14 +71,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let c of currencies">
-              <td>{{c.name}}</td>
-              <td>{{c.code}}</td>
-              <td>{{c.exchangeRateToZAR}}</td>
-              <td>
-              <a href="#" style="text-decoration: none;">Edit</a> | <a href="#" style="text-decoration: none;">Delete</a> 
-              </td>
-            </tr>
+            <ng-container *ngIf="noCurrency">
+              <p class="mt-2">No currency records found.</p>
+            </ng-container>
+            <ng-container *ngIf="!noCurrency">
+              <tr *ngFor="let c of currencies">
+                <td>{{c.name}}</td>
+                <td>{{c.code}}</td>
+                <td>{{c.exchangeRateToZAR}}</td>
+                <td>
+                <a href="#" style="text-decoration: none;">Edit</a> | <a href="#" style="text-decoration: none;">Delete</a> 
+                </td>
+              </tr>
+            </ng-container>          
           </tbody>
         </table>
       </div>
