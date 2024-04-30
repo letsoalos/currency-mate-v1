@@ -8,20 +8,20 @@
           <div class="col-md-5 mt-2">
             <label for="sourceCurrency" class="form-label">Source Currency</label>
             <select formControlName="sourceCurrent" name="sourceCurrency" id="sourceCurrency" class="form-select">
-              <option 
-                    *ngFor="let currency of conversionRates | keyvalue" 
-                    [value]="currency.key" 
+              <option
+                    *ngFor="let currency of conversionRates | keyvalue"
+                    [value]="currency.key"
                     [selected]="currency.key === 'ZAR' ? true : null">
                     {{ currency.key }}
               </option>
             </select>
           </div>
-        
+
           <div class="col-md-2 mt-4 d-flex align-items-center justify-content-center">
             <i class="fa fa-exchange custom-icon"></i>
           </div>
-          
-        
+
+
           <div class="col-md-5 mt-2">
             <label for="destinationCurrency" class="form-label">Destination Currency</label>
             <select formControlName="destinationCurrency" name="destinationCurrency" id="destinationCurrency" class="form-select">
@@ -29,35 +29,36 @@
             </select>
           </div>
         </div>
-        
-        <div class="row">    
+
+        <div class="row">
           <div class="col-md-4 mt-4">
             <label for="amount" class="form-label">Converted Amount</label>
-            <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly> 
-          </div>                   
-            
+            <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly>
+          </div>
+
             <div class="col-md-8 mt-4">
               <label for="currencyName" class="form-label">Currency Name</label>
-              <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly> 
+              <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly>
             </div>
         </div>
-    
+
         <div class="row mt-4">
           <div class="col-6">
-            <button class="btn btn-primary form-control" (click)="convertCurrency()">        
+            <button class="btn btn-primary form-control"
+            (click)="convertCurrency()">
               Convert
             </button>
-          </div>          
+          </div>
           <div class="col-6">
-            <button class="btn btn-success form-control" 
+            <button class="btn btn-success form-control"
               (click)="onSubmit()"
-              
+
               >
               Save
             </button>
           </div>
-        </div>  
-    
+        </div>
+
       </form>
     </div>
   </div>

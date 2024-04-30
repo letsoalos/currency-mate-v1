@@ -11,3 +11,16 @@ D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\ref\currencymate-core.dll
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.AssemblyReference.cache
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.sourcelink.json
+C:\Workspace\apps\currency-mate-v1\currencymate-core\bin\Debug\net8.0\currencymate-core.deps.json
+C:\Workspace\apps\currency-mate-v1\currencymate-core\bin\Debug\net8.0\currencymate-core.dll
+C:\Workspace\apps\currency-mate-v1\currencymate-core\bin\Debug\net8.0\currencymate-core.pdb
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.AssemblyReference.cache
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.AssemblyInfoInputs.cache
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.AssemblyInfo.cs
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.CoreCompileInputs.cache
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.sourcelink.json
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.dll
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\refint\currencymate-core.dll
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\currencymate-core.pdb
+C:\Workspace\apps\currency-mate-v1\currencymate-core\obj\Debug\net8.0\ref\currencymate-core.dll

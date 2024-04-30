@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("currencymate-infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f628278fe6eb3c83d5245a9b4f534a8b183ba293")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4debcbdc60af93f08f6b5435129bdd70cd557f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("currencymate-infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("currencymate-infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

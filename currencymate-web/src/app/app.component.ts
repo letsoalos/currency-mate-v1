@@ -24,18 +24,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCurrencies();
     this.getForm();
-
-    this.formControls.destinationCurrency.valuesChanges.subscribe(() => {
-      console.log('From Currency:', this.formControls.sourceCurrency.value);
-      console.log('To Currency:', this.formControls.destinationCurrency.value);
-  
-      const dCurrency = this.formControls.destinationCurrency.value;
-      if (dCurrency) {
-        this.convertCurrency();
-      }
-    });
   }
-  
+
 
   getForm(): any {
     this.form = this.fb.group({
@@ -46,59 +36,42 @@ export class AppComponent implements OnInit {
     });
   }
 
-
-
   getAllCurrencies() {
-    this.appService.getAllCurrencies().subscribe((res: any) => {
-      console.log('response', res); 
-      if (res && typeof res === 'object') {
-        this.baseCode = res.base_code;
-        this.conversionRates = res.conversion_rates; 
-      }     
-    }, error => {
-      console.error(error);
-    });
+    this.appService.getAllCurrencies().subscribe({
+      next: (res: any) => {
+        console.log('response', res);
+        if (res && typeof res === 'object') {
+          this.baseCode = res.base_code;
+          this.conversionRates = res.conversion_rates;
+        }
+      },
+      error: (err) => console.log(err)
+    })
   }
 
   get formControls(): any { return this.form.controls; }
 
+  convertCurrency() {
+    const destinationCurrency = this.formControls.destinationCurrency.value;
+    const sourceCurrency = this.formControls.sourceCurrent.value;
+    this.currencyName = this.formControls.destinationCurrency.value;
+
+    if (destinationCurrency && sourceCurrency) {
+      this.appService.getCurrencyRate(sourceCurrency, destinationCurrency).subscribe({
+        next: (res) => {
+          this.conversionRate = res.conversion_rate;
+          console.log('Amount', this.conversionRate)
+          console.log('currency Name', this.formControls.destinationCurrency.value)
+        },
+        error: (err) => console.log(err)
+      })
+    } else {
+      console.log('We expecting value from current destination and source currency');
+    }
+  }
+
   onSubmit(): void {
     console.log('Form:', this.form.value);
   }
-
-  // convertCurrency() {
-  //   console.log('From Currency:', this.fromCurrency);
-  //   console.log('To Currency:', this.toCurrency);   
-  //   this.currencyName = this.toCurrency.toString();
-  //   console.log(this.currencyName);
-  //   // Call your service method with this.fromCurrency and this.toCurrency
-  //   this.appService.getCurrencyRate(this.fromCurrency, this.toCurrency).subscribe((currencyRate: any) => {
-  //     console.log('Currency rate:', currencyRate);
-  //     this.conversionRate = currencyRate.conversion_rate; // Store the conversion rate
-     
-  //   }, error => {
-  //     console.error('Error converting currency:', error);
-  //   });
-  // }
-
-  convertCurrency() {
-    console.log('From Currency:', this.formControls.sourceCurrency.value);
-    console.log('To Currency:', this.formControls.destinationCurrency.value);
-  
-    this.currencyName = this.formControls.sourceCurrency.value;
-      console.log(this.currencyName);
-  
-      // Call your service method with this.fromCurrency and this.toCurrency
-      this.appService.getCurrencyRate(this.formControls.destinationCurrency.value, this.formControls.sourceCurrency.value).subscribe(
-        (currencyRate: any) => {
-          console.log('Currency rate:', currencyRate);
-          this.conversionRate = currencyRate.conversion_rate; // Store the conversion rate
-        },
-        error => {
-          console.error('Error converting currency:', error);
-        }
-      );
-  }
-  
 
 }

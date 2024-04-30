@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Workspaces\\currencymate\\currencymate-infrastructure\\currencymate-infrastructure.csproj": {}
+    "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-infrastructure\\currencymate-infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Workspaces\\currencymate\\currencymate-core\\currencymate-core.csproj": {
+    "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\currencymate-core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspaces\\currencymate\\currencymate-core\\currencymate-core.csproj",
+        "projectUniqueName": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\currencymate-core.csproj",
         "projectName": "currencymate-core",
-        "projectPath": "D:\\Workspaces\\currencymate\\currencymate-core\\currencymate-core.csproj",
-        "packagesPath": "C:\\Users\\sello\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspaces\\currencymate\\currencymate-core\\obj\\",
+        "projectPath": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\currencymate-core.csproj",
+        "packagesPath": "C:\\Users\\nathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sello\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -66,21 +72,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Workspaces\\currencymate\\currencymate-infrastructure\\currencymate-infrastructure.csproj": {
+    "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-infrastructure\\currencymate-infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspaces\\currencymate\\currencymate-infrastructure\\currencymate-infrastructure.csproj",
+        "projectUniqueName": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-infrastructure\\currencymate-infrastructure.csproj",
         "projectName": "currencymate-infrastructure",
-        "projectPath": "D:\\Workspaces\\currencymate\\currencymate-infrastructure\\currencymate-infrastructure.csproj",
-        "packagesPath": "C:\\Users\\sello\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspaces\\currencymate\\currencymate-infrastructure\\obj\\",
+        "projectPath": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-infrastructure\\currencymate-infrastructure.csproj",
+        "packagesPath": "C:\\Users\\nathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sello\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,14 +98,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Workspaces\\currencymate\\currencymate-core\\currencymate-core.csproj": {
-                "projectPath": "D:\\Workspaces\\currencymate\\currencymate-core\\currencymate-core.csproj"
+              "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\currencymate-core.csproj": {
+                "projectPath": "C:\\Workspace\\apps\\currency-mate-v1\\currencymate-core\\currencymate-core.csproj"
               }
             }
           }
@@ -140,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
