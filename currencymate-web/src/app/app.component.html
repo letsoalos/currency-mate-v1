@@ -3,12 +3,17 @@
     <div class="border p-4 mt-4"> <!-- Added border and padding -->
       <h2 id="currencyConverterTitle" class="text-center my-4">Currency Converter</h2>
       <hr>
-      <form>
+      <form [formGroup]="form">
         <div class="row mt-4">
           <div class="col-md-5 mt-2">
             <label for="sourceCurrency" class="form-label">Source Currency</label>
-            <select name="sourceCurrency" id="sourceCurrency" class="form-select" [(ngModel)]="fromCurrency">
-              <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key" [selected]="currency.key === 'ZAR' ? true : null">{{ currency.key }}</option>
+            <select formControlName="sourceCurrent" name="sourceCurrency" id="sourceCurrency" class="form-select">
+              <option 
+                    *ngFor="let currency of conversionRates | keyvalue" 
+                    [value]="currency.key" 
+                    [selected]="currency.key === 'ZAR' ? true : null">
+                    {{ currency.key }}
+              </option>
             </select>
           </div>
         
@@ -19,7 +24,7 @@
         
           <div class="col-md-5 mt-2">
             <label for="destinationCurrency" class="form-label">Destination Currency</label>
-            <select name="destinationCurrency" id="destinationCurrency" class="form-select" [(ngModel)]="toCurrency">
+            <select formControlName="destinationCurrency" name="destinationCurrency" id="destinationCurrency" class="form-select">
               <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option>
             </select>
           </div>
@@ -28,12 +33,12 @@
         <div class="row">    
           <div class="col-md-4 mt-4">
             <label for="amount" class="form-label">Converted Amount</label>
-            <input type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly> 
+            <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly> 
           </div>                   
             
             <div class="col-md-8 mt-4">
               <label for="currencyName" class="form-label">Currency Name</label>
-              <input type="number" class="form-control" id="amount" name="amount" readonly> 
+              <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly> 
             </div>
         </div>
     
@@ -44,7 +49,10 @@
             </button>
           </div>          
           <div class="col-6">
-            <button class="btn btn-outline-secondary form-control">
+            <button class="btn btn-success form-control" 
+              (click)="onSubmit()"
+              
+              >
               Save
             </button>
           </div>
