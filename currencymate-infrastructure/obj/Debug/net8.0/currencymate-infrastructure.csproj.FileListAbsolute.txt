@@ -25,8 +25,8 @@ C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.AssemblyInfo.cs
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.csproj.CoreCompileInputs.cache
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.sourcelink.json
-C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currency.98EC511F.Up2Date
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.dll
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\refint\currencymate-infrastructure.dll
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.pdb
 C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\ref\currencymate-infrastructure.dll
+C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\obj\Debug\net8.0\currency.98EC511F.Up2Date

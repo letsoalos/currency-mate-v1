@@ -266,9 +266,9 @@ C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\staticwebas
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.currencymate-api.props
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\scopedcss\bundle\currencymate-api.styles.css
-C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\currency.31AB90F7.Up2Date
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\currencymate-api.dll
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\refint\currencymate-api.dll
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\currencymate-api.pdb
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\currencymate-api.genruntimeconfig.cache
 C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\ref\currencymate-api.dll
+C:\Workspace\apps\currency-mate-v1\currencymate-api\obj\Debug\net8.0\currency.31AB90F7.Up2Date

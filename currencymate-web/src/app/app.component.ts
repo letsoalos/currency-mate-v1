@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './core/service/app.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CurrencyRateDto } from './core/data/currency-data';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +13,10 @@ export class AppComponent implements OnInit {
   baseCode: string;
   conversionRates: { [key: string]: number };
   form: FormGroup;
-  fromCurrency: string = 'ZAR'; // Default value
+  fromCurrency: string = 'ZAR';
   toCurrency: string;
-  conversionRate: number; // Property to store the conversion rate
+  conversionRate: number;
   currencyName: string = '';
-
 
   constructor(private appService: AppService, private fb: FormBuilder) {}
 
@@ -25,7 +24,6 @@ export class AppComponent implements OnInit {
     this.getAllCurrencies();
     this.getForm();
   }
-
 
   getForm(): any {
     this.form = this.fb.group({
@@ -39,7 +37,6 @@ export class AppComponent implements OnInit {
   getAllCurrencies() {
     this.appService.getAllCurrencies().subscribe({
       next: (res: any) => {
-        console.log('response', res);
         if (res && typeof res === 'object') {
           this.baseCode = res.base_code;
           this.conversionRates = res.conversion_rates;
@@ -60,8 +57,12 @@ export class AppComponent implements OnInit {
       this.appService.getCurrencyRate(sourceCurrency, destinationCurrency).subscribe({
         next: (res) => {
           this.conversionRate = res.conversion_rate;
-          console.log('Amount', this.conversionRate)
-          console.log('currency Name', this.formControls.destinationCurrency.value)
+          const savePayload = {
+            amount: this.conversionRate,
+            currencyName: destinationCurrency,
+            sourceCurrency: sourceCurrency
+          }
+          this.saveCurrencyRate(savePayload);
         },
         error: (err) => console.log(err)
       })
@@ -70,8 +71,11 @@ export class AppComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    console.log('Form:', this.form.value);
+  saveCurrencyRate(data: CurrencyRateDto) {
+    this.appService.saveCurrencyRate(data).subscribe({
+      next: (res) => console.log('success', res),
+      error: (err) => console.log(err)
+    })
   }
 
 }
