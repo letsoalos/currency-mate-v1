@@ -21,6 +21,10 @@ export class AppService {
     return this.http.get<any>(url);
   }
 
+  getCurrencies() {
+    return this.http.get(`${this.baseUrl}/get-currencies`);
+  }
+
   saveCurrencyRate(data: CurrencyRateDto) {
     return this.http.post(`${this.baseUrl}/add-currency`, data);
   }

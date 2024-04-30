@@ -1,57 +1,87 @@
 <div class="container">
-  <div class="col-12">
-    <div class="border p-4 mt-4"> <!-- Added border and padding -->
-      <h2 id="currencyConverterTitle" class="text-center my-4">Currency Converter</h2>
-      <hr>
-      <form [formGroup]="form">
-        <div class="row mt-4">
-          <div class="col-md-5 mt-2">
-            <label for="sourceCurrency" class="form-label">Source Currency</label>
-            <select formControlName="sourceCurrent" name="sourceCurrency" id="sourceCurrency" class="form-select">
-              <option
-                    *ngFor="let currency of conversionRates | keyvalue"
-                    [value]="currency.key"
-                    [selected]="currency.key === 'ZAR' ? true : null">
-                    {{ currency.key }}
-              </option>
-            </select>
-          </div>
-
-          <div class="col-md-2 mt-4 d-flex align-items-center justify-content-center">
-            <i class="fa fa-exchange custom-icon"></i>
-          </div>
-
-
-          <div class="col-md-5 mt-2">
-            <label for="destinationCurrency" class="form-label">Destination Currency</label>
-            <select formControlName="destinationCurrency" name="destinationCurrency" id="destinationCurrency" class="form-select">
-              <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mt-4">
-            <label for="amount" class="form-label">Converted Amount</label>
-            <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly>
-          </div>
-
-            <div class="col-md-8 mt-4">
-              <label for="currencyName" class="form-label">Currency Name</label>
-              <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly>
+  <div class="row">
+    <div class="col-12">
+      <div class="border p-4 mt-4"> <!-- Added border and padding -->
+        <h2 id="currencyConverterTitle" class="text-center my-4">Currency Converter</h2>
+        <hr>
+        <form [formGroup]="form">
+          <div class="row mt-4">
+            <div class="col-md-5 mt-2">
+              <label for="sourceCurrency" class="form-label">Source Currency</label>
+              <select formControlName="sourceCurrent" name="sourceCurrency" id="sourceCurrency" class="form-select">
+                <option
+                      *ngFor="let currency of conversionRates | keyvalue"
+                      [value]="currency.key"
+                      [selected]="currency.key === 'ZAR' ? true : null">
+                      {{ currency.key }}
+                </option>
+              </select>
             </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-6 offset-3">
-            <button class="btn btn-outline-success form-control"
-            (click)="convertCurrency()">
-              Convert
-            </button>
+  
+            <div class="col-md-2 mt-4 d-flex align-items-center justify-content-center">
+              <i class="fa fa-exchange custom-icon"></i>
+            </div>
+  
+  
+            <div class="col-md-5 mt-2">
+              <label for="destinationCurrency" class="form-label">Destination Currency</label>
+              <select formControlName="destinationCurrency" name="destinationCurrency" id="destinationCurrency" class="form-select">
+                <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option>
+              </select>
+            </div>
           </div>
-        </div>
-
-      </form>
+  
+          <div class="row">
+            <div class="col-md-4 mt-4">
+              <label for="amount" class="form-label">Converted Amount</label>
+              <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly>
+            </div>
+  
+              <div class="col-md-8 mt-4">
+                <label for="currencyName" class="form-label">Currency Name</label>
+                <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly>
+              </div>
+          </div>
+  
+          <div class="row mt-4">
+            <div class="col-6 offset-3">
+              <button class="btn btn-outline-success form-control"
+              (click)="convertCurrency()">
+                Convert
+              </button>
+            </div>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="border p-4 mt-4"> <!-- Added border and padding -->
+        <h2 id="currencyConverterTitle" class="text-center my-4">Currencies</h2>
+        <hr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Exchange Rate</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of currencies">
+              <td>{{c.name}}</td>
+              <td>{{c.code}}</td>
+              <td>{{c.exchangeRateToZAR}}</td>
+              <td>
+              <a href="#" style="text-decoration: none;">Edit</a> | <a href="#" style="text-decoration: none;">Delete</a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

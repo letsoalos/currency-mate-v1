@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = currencymate_infrastructure
-build_property.ProjectDir = C:\Workspace\apps\currency-mate-v1\currencymate-infrastructure\
+build_property.ProjectDir = D:\Workspaces\currencymate\currencymate-infrastructure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

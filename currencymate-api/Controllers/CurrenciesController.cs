@@ -47,17 +47,27 @@ namespace currencymate_api.Controllers
 
             if(currency == null) return BadRequest(new ApiResponse(400, "Problem creating currency"));
 
-            return Ok(_mapper.Map<CurrencyToReturnDto>(currency));
+            return Ok(new ApiResponse(200, "Success"));
         }
 
-        [HttpPut("update-currency/{id}")]
+        [HttpPost("update-currency")]
         public async Task<ActionResult<CurrencyToReturnDto>> UpdateCurrency([FromBody] Currency obj)
         {
             var currency = await _currencyService.UpdateCurrencyAsync(obj);
 
             if (currency == null) return BadRequest(new ApiResponse(400, "Problem updating currency"));
 
-            return Ok(_mapper.Map<CurrencyToReturnDto>(currency));
+            return Ok(new ApiResponse(200, "Success"));
+        }
+
+        [HttpGet("delete-currency/{id}")]
+        public async Task<ActionResult<CurrencyToReturnDto>> DeleteCurrency(int id)
+        {
+            var currency = await _currencyService.DeleteCurrencyAsync(id);
+
+            if (currency == null) return BadRequest(new ApiResponse(400, $"Id {id} not found"));
+
+            return Ok(new ApiResponse(200, "Success"));
         }
 
         [HttpGet("get-currencies-by-api")]

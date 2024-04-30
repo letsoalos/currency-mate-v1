@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from './core/service/app.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CurrencyRateDto } from './core/data/currency-data';
+import { CurrencyDto } from './shared/models/currency';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,13 @@ export class AppComponent implements OnInit {
   toCurrency: string;
   conversionRate: number;
   currencyName: string = '';
+  currencies: any | [] = [];
 
   constructor(private appService: AppService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getAllCurrencies();
+    this.getCurrencies();
     this.getForm();
   }
 
@@ -46,6 +49,15 @@ export class AppComponent implements OnInit {
     })
   }
 
+  getCurrencies() {
+    this.appService.getCurrencies().subscribe({
+      next: (res: any) => {
+        this.currencies = res;
+      },
+      error: (err) => console.log(err)
+    })
+  }
+
   get formControls(): any { return this.form.controls; }
 
   convertCurrency() {
@@ -57,10 +69,10 @@ export class AppComponent implements OnInit {
       this.appService.getCurrencyRate(sourceCurrency, destinationCurrency).subscribe({
         next: (res) => {
           this.conversionRate = res.conversion_rate;
-          const savePayload = {
-            amount: this.conversionRate,
-            currencyName: destinationCurrency,
-            sourceCurrency: sourceCurrency
+          const savePayload: CurrencyRateDto = {
+            exchangeRateToZAR: this.conversionRate,
+            name: destinationCurrency,
+            code: sourceCurrency
           }
           this.saveCurrencyRate(savePayload);
         },
