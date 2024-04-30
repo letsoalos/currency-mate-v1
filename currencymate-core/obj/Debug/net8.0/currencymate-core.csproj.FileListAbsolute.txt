@@ -10,3 +10,4 @@ D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\refint\currencymat
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.pdb
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\ref\currencymate-core.dll
 D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.csproj.AssemblyReference.cache
+D:\Workspaces\currencymate\currencymate-core\obj\Debug\net8.0\currencymate-core.sourcelink.json

@@ -1,13 +1,54 @@
 <div class="container">
   <div class="col-12">
-    <h2>Currency Mate</h2>
+    <h2 id="currencyConverterTitle" class="text-center my-4">Currency Converter</h2>
     <form>
-      <div class="col-4 mt-2">
-        <label for="currencyFrom" class="form-label">Currency From</label>
-        <select name="" id="" class="form-select">
-          <!--<option *ngFor="let c of res.conversionRates"></option>-->
-        </select>
+      <div class="row mt-4">
+        <div class="col-md-5 mt-2">
+          <label for="sourceCurrency" class="form-label">Source Currency</label>
+          <select name="sourceCurrency" id="sourceCurrency" class="form-select">
+            <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option>
+          </select>
+        </div>
+      
+        <div class="col-md-2 mt-2 d-flex align-items-center justify-content-center">
+          <i class="fa fa-exchange" aria-hidden="true"></i>
+        </div>
+      
+        <div class="col-md-5 mt-2">
+          <label for="destinationCurrency" class="form-label">Destination Currency</label>
+          <select name="destinationCurrency" id="destinationCurrency" class="form-select">
+            <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option>
+          </select>
+        </div>
       </div>
+      
+  
+    <div class="row">
+        <div class="col-md-6 mt-4">
+          <label for="amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" > 
+        </div> 
+
+        <div class="col-md-6 mt-4">
+          <label for="amount" class="form-label">Converted Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" readonly> 
+        </div>  
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-6">
+        <button class="btn btn-primary form-control">        
+          Convert
+        </button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-outline-secondary form-control">
+          Save
+        </button>
+      </div>
+    </div>  
+  
     </form>
+  
   </div>
 </div>

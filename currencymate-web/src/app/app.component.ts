@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './core/service/app.service';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  conversionRates: any;
+  baseCode: string;
+  conversionRates: { [key: string]: number };
   form: FormGroup;
 
   constructor(private appService: AppService, private fb: FormBuilder) {}
@@ -19,17 +19,17 @@ export class AppComponent implements OnInit {
     this.getAllCurrencies();
   }
 
-  getForm(): any {
-
-  }
-
   getAllCurrencies() {
-    this.appService.getAllCurrencies().subscribe({
-      next: (res) => {
-        console.log('cunrrencies', res);       
-      },
-      error: (err) => console.error(err)
-    })
+    this.appService.getAllCurrencies().subscribe((res: any) => {
+      console.log('response', res); 
+      if (res && typeof res === 'object') {
+        // Filter base_code
+        this.baseCode = Object.keys(res).find(key => key === 'base_code') || '';
+        this.conversionRates = res.conversion_rates; 
+      }     
+    }, error => {
+      console.error(error);
+    });
   }
   
 }

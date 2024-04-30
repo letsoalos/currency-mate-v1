@@ -134,3 +134,4 @@ D:\Workspaces\currencymate\currencymate-api\bin\Debug\net8.0\runtimes\win-x86\na
 D:\Workspaces\currencymate\currencymate-api\bin\Debug\net8.0\RestSharp.dll
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currency.31AB90F7.Up2Date
 D:\Workspaces\currencymate\currencymate-api\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currencymate-api.sourcelink.json

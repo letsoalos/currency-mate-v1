@@ -13,3 +13,4 @@ D:\Workspaces\currencymate\currencymate-infrastructure\obj\Debug\net8.0\refint\c
 D:\Workspaces\currencymate\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.pdb
 D:\Workspaces\currencymate\currencymate-infrastructure\obj\Debug\net8.0\ref\currencymate-infrastructure.dll
 D:\Workspaces\currencymate\currencymate-infrastructure\obj\Debug\net8.0\currency.98EC511F.Up2Date
+D:\Workspaces\currencymate\currencymate-infrastructure\obj\Debug\net8.0\currencymate-infrastructure.sourcelink.json
