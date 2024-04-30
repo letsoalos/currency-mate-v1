@@ -95,4 +95,8 @@ export class AppComponent implements OnInit {
     })
   }
 
+  updateCurrencyRate(data: CurrencyRateDto) {
+
+  }
+
 }

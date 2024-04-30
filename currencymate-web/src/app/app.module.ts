@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteCurrencyComponent } from './delete-currency/delete-currency.component';
+import { UpdateCurrencyComponent } from './update-currency/update-currency.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeleteCurrencyComponent,
+    UpdateCurrencyComponent
   ],
   imports: [
     BrowserModule,
