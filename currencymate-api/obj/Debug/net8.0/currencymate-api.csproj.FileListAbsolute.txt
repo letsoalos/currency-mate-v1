@@ -266,9 +266,9 @@ D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\staticwebassets\msb
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.currencymate-api.props
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\scopedcss\bundle\currencymate-api.styles.css
+D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currency.31AB90F7.Up2Date
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currencymate-api.dll
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\refint\currencymate-api.dll
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currencymate-api.pdb
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currencymate-api.genruntimeconfig.cache
 D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\ref\currencymate-api.dll
-D:\Workspaces\currencymate\currencymate-api\obj\Debug\net8.0\currencymate-api.csproj.CopyComplete

@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent implements OnInit {
 
-  baseCode: string;
+  baseCode: string  = 'ZAR';
   conversionRates: { [key: string]: number };
   form: FormGroup;
   fromCurrency: string = 'ZAR';
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   getForm(): any {
+    this.baseCode = 'ZAR'; 
     this.form = this.fb.group({
       sourceCurrent:[''],
       destinationCurrency:[''],
@@ -55,7 +56,7 @@ export class AppComponent implements OnInit {
           this.conversionRates = res.conversion_rates;
         }
       },
-      error: (err) => this.toastrService.error(err)
+      error: (err) => this.toastrService.error('Something went wrong', 'Error')
     })
   }
 
@@ -66,7 +67,10 @@ export class AppComponent implements OnInit {
         this.currencies = res;
         if(this.currencies.length > 0) this.noCurrency = false;
       },
-      error: (err) => this.toastrService.error(err)
+      error: (err) => {
+        this.toastrService.error('Something went wrong', 'Error');
+        console.log('Error', err);
+      }
     })
   }
 
@@ -81,6 +85,7 @@ export class AppComponent implements OnInit {
       this.appService.getCurrencyRate(sourceCurrency, destinationCurrency).subscribe({
         next: (res) => {
           this.conversionRate = res.conversion_rate;
+          this.baseCode = res.base_code;
           const savePayload: CurrencyRateDto = {
             exchangeRateToZAR: this.conversionRate,
             name: destinationCurrency,
@@ -88,10 +93,13 @@ export class AppComponent implements OnInit {
           }
           this.saveCurrencyRate(savePayload);
         },
-        error: (err) => this.toastrService.error(err)
+        error: (err) => {
+          this.toastrService.error('Something went wrong', 'Error');
+          console.log('Error', err);
+        }
       })
     } else {
-      console.log('We expecting value from current destination and source currency');
+      this.toastrService.error('We expecting value from current destination and source currency', 'Error');
     }
   }
 
@@ -100,13 +108,15 @@ export class AppComponent implements OnInit {
       next: (res: any) => {
         if (res.statusCode == 200) {
           this.toastrService.success('Saved successfully.', 'Success');
-          this.getCurrencies();   
-          this.resetForm();           
+          this.getCurrencies();            
         } else {
-          this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+          this.toastrService.error('Something went wrong', 'Error');
         }
       },
-      error: (err) => this.toastrService.error(err)
+      error: (err) => {
+        this.toastrService.error('Something went wrong', 'Error');
+            console.log('Error', err);
+      }
     })
   }
 
@@ -128,10 +138,13 @@ export class AppComponent implements OnInit {
               this.toastrService.success('Updated successfully.', 'Success');
               this.getCurrencies();              
             } else {
-              this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+              this.toastrService.error('Soemthing went wrong', 'Error');
             }
           },
-          error: (err) => this.toastrService.error(err)
+          error: (err) =>  {
+            this.toastrService.error('Something went wrong', 'Error');
+            console.log('Error', err);
+          }
         });
       });
   }
@@ -154,10 +167,13 @@ export class AppComponent implements OnInit {
               this.toastrService.success('Deleted successfully.', 'Success');
               this.getCurrencies();
             } else {
-              this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+              this.toastrService.error('Soemthing went wrong', 'Error');
             }
           },
-          error: (err) => console.log(err) 
+          error: (err) => {
+            this.toastrService.error('Something went wrong', 'Error');
+            console.log('Error', err);
+          }
         });
       });
   }
