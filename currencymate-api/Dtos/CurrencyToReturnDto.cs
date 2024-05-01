@@ -6,5 +6,7 @@ namespace currencymate_api.Dtos
         public string Name { get; set; } 
         public string Code { get; set; }  
         public decimal ExchangeRateToZAR { get; set; }
+         public DateTime DateAdded { get; set; }  
+        public DateTime DateUpdated { get; set; } 
     }
 }

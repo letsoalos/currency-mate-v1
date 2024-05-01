@@ -34,7 +34,7 @@
           <div class="row">
             <div class="col-md-4 mt-4">
               <label for="amount" class="form-label">Converted Amount</label>
-              <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly>
+              <input formControlName="amount" type="number" class="form-control" id="convertAmount" name="amount" [value]="conversionRate" readonly>
             </div>
   
               <div class="col-md-8 mt-4">
@@ -46,7 +46,8 @@
           <div class="row mt-4">
             <div class="col-6 offset-3">
               <button class="btn btn-outline-success form-control"
-              (click)="convertCurrency()">
+              (click)="convertCurrency()"
+              [disabled]="!form.dirty">
                 Convert
               </button>
             </div>
@@ -61,12 +62,13 @@
       <div class="border p-4 mt-4"> <!-- Added border and padding -->
         <h2 id="currencyConverterTitle" class="text-center my-4">Currencies</h2>
         <hr>
-        <table class="table">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Name</th>
               <th>Code</th>
               <th>Exchange Rate</th>
+              <th>Date Added</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -79,8 +81,9 @@
                 <td>{{c.name}}</td>
                 <td>{{c.code}}</td>
                 <td>{{c.exchangeRateToZAR}}</td>
+                <td>{{c.dateAdded}}</td>                
                 <td>
-                <a href="#" style="text-decoration: none;">Edit</a> | <a href="#" style="text-decoration: none;">Delete</a> 
+                <a (click)="updateCurrencyRate('update', c)" style="text-decoration: none;cursor: pointer;">Edit</a> | <a (click)="deleteCurrencyRate('delete', c)" style="text-decoration: none;cursor: pointer;">Delete</a> 
                 </td>
               </tr>
             </ng-container>          

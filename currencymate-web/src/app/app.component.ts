@@ -3,6 +3,10 @@ import { AppService } from './core/service/app.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CurrencyRateDto } from './core/data/currency-data';
 import { CurrencyDto } from './shared/models/currency';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { UpdateCurrencyComponent } from './update-currency/update-currency.component';
+import { DeleteCurrencyComponent } from './delete-currency/delete-currency.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +24,13 @@ export class AppComponent implements OnInit {
   currencyName: string = '';
   currencies: any | [] = [];
   noCurrency: boolean = false;
+  bsModalRef: any;
 
-  constructor(private appService: AppService, private fb: FormBuilder) {}
+  constructor(
+          private appService: AppService, 
+          private fb: FormBuilder,  
+          private toastrService: ToastrService,
+          private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.getAllCurrencies();
@@ -46,7 +55,7 @@ export class AppComponent implements OnInit {
           this.conversionRates = res.conversion_rates;
         }
       },
-      error: (err) => console.log(err)
+      error: (err) => this.toastrService.error(err)
     })
   }
 
@@ -57,7 +66,7 @@ export class AppComponent implements OnInit {
         this.currencies = res;
         if(this.currencies.length > 0) this.noCurrency = false;
       },
-      error: (err) => console.log(err)
+      error: (err) => this.toastrService.error(err)
     })
   }
 
@@ -79,7 +88,7 @@ export class AppComponent implements OnInit {
           }
           this.saveCurrencyRate(savePayload);
         },
-        error: (err) => console.log(err)
+        error: (err) => this.toastrService.error(err)
       })
     } else {
       console.log('We expecting value from current destination and source currency');
@@ -88,15 +97,72 @@ export class AppComponent implements OnInit {
 
   saveCurrencyRate(data: CurrencyRateDto) {
     this.appService.saveCurrencyRate(data).subscribe({
-      next: (res) => {
-        this.getCurrencies();
+      next: (res: any) => {
+        if (res.statusCode == 200) {
+          this.toastrService.success('Saved successfully.', 'Success');
+          this.getCurrencies();   
+          this.resetForm();           
+        } else {
+          this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+        }
       },
-      error: (err) => console.log(err)
+      error: (err) => this.toastrService.error(err)
     })
   }
 
-  updateCurrencyRate(data: CurrencyRateDto) {
-
+  updateCurrencyRate(action: string, data: CurrencyRateDto) {
+    const model = data;
+    const userAction = action;
+    const config = {
+    keyboard: false,
+    backdrop: true,
+    ignoreBackdropClick: true,
+    class: 'modal-dialog-centered modal-lg',
+    initialState: { model, userAction }
+    };
+      this.bsModalRef = this.modalService.show(UpdateCurrencyComponent, config);
+      this.bsModalRef.content.updateModel.subscribe((m: any) => {
+        this.appService.updateCurrencyRate(m).subscribe({
+          next: (res: any) => {
+            if (res.statusCode == 200) {
+              this.toastrService.success('Updated successfully.', 'Success');
+              this.getCurrencies();              
+            } else {
+              this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+            }
+          },
+          error: (err) => this.toastrService.error(err)
+        });
+      });
   }
 
+  deleteCurrencyRate(action: string, data: CurrencyRateDto) {
+    const model = data;
+    const userAction = action;
+    const config = {
+    keyboard: false,
+    backdrop: true,
+    ignoreBackdropClick: true,
+    class: 'modal-dialog-centered modal-lg',
+    initialState: { model, userAction }
+    };
+      this.bsModalRef = this.modalService.show(DeleteCurrencyComponent, config);
+      this.bsModalRef.content.updateModel.subscribe((m: any) => {
+        this.appService.deleteCurrencyRate(m.id).subscribe({
+          next: (res: any) => {
+            if (res.statusCode == 200) {
+              this.toastrService.success('Deleted successfully.', 'Success');
+              this.getCurrencies();
+            } else {
+              this.toastrService.error('Soemthing went wrong, try again.', 'Error');
+            }
+          },
+          error: (err) => console.log(err) 
+        });
+      });
+  }
+
+  resetForm() {
+    this.form.reset();
+  }
 }

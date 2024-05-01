@@ -1,1 +1,76 @@
-<p>update-currency works!</p>
+<div class="card">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <button class="btn-close float-end" data-dismiss="modal" (click)="closeModal()">
+              <span aria-hidden="true" class="float-end"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h5 class="text-center fw-bold mb-4">Update saved currency</h5>
+      <form [formGroup]="form">
+        <div class="row mt-4">
+            <div class="col-md-6 mt-2">
+              <label for="sourceCurrency" class="form-label">Source Currency</label>
+              <select formControlName="sourceCurrent" name="sourceCurrency" id="sourceCurrency" class="form-select">
+                 <option
+                      *ngFor="let currency of conversionRates | keyvalue"
+                      [value]="currency.key"
+                      [selected]="currency.key === 'ZAR' ? true : null">
+                      {{ currency.key }}
+                </option>
+              </select>
+            </div> 
+  
+            <div class="col-md-6 mt-2">
+              <label for="destinationCurrency" class="form-label">Destination Currency</label>
+              <select formControlName="destinationCurrency" name="destinationCurrency" id="destinationCurrency" class="form-select">
+                 <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">{{ currency.key }}</option> 
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mt-4">
+              <label for="amount" class="form-label">Converted Amount</label>
+              <input formControlName="amount" type="number" class="form-control" id="amount" name="amount" [value]="conversionRate" readonly>
+            </div>
+  
+              <div class="col-md-6 mt-4">
+                <label for="currencyName" class="form-label">Currency Name</label>
+                <input formControlName="currencyName" type="text" class="form-control" id="amount" name="currencyName" [value]="this.formControls.destinationCurrency.value" readonly>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-6 offset-3 mt-3">
+              <button class="btn btn-outline-success form-control"
+              (click)="convertCurrency()"
+              [disabled]="!form.dirty">
+                Convert
+              </button>
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="row my-3">
+        <div class="col-6">
+          <button class="btn btn-outline-danger form-control" data-dismiss="modal" (click)="closeModal()">
+            Cancel
+          </button>
+        </div>
+        <div class="col-6">
+          <button 
+                class="btn btn-success form-control" 
+                data-dismiss="modal" 
+                (click)="onSubmit()" 
+                [disabled]="!form.valid || !form.dirty">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
