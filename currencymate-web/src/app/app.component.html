@@ -12,7 +12,7 @@
                 <option
                       *ngFor="let currency of conversionRates | keyvalue"
                       [value]="currency.key"
-                      [selected]="currency.key === 'ZAR' ? true : null">
+                      [selected]="currency.key === 'ZAR' ? true: null">
                       {{ currency.key }}
                 </option>
               </select>
